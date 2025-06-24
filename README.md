@@ -1,7 +1,7 @@
-# ✈️ Flight Delay Prediction at Arlanda Airport (ARN)
+# ✈️ Flight Delay Prediction at Los Angeles International Airport (LAX)
 
-An AI data analysis project to predict the flight delays at Stockholm Arlanda Airport.
-Using Python, Pandas, and scikit-learn.
+An AI data analysis project to predict the flight delays at Los Angeles International Airport (LAX).
+Using Python, Pandas, Matplotlib, and scikit-learn.
 
 ---
 
