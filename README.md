@@ -3,8 +3,10 @@
 An AI data analysis project to predict the flight delays at Los Angeles International Airport (LAX).
 Using Python, Pandas, Matplotlib, and scikit-learn.
 
-Install all required packages using:
 
+## 🧰 Requirements
+
+Install all required packages using:
 ```bash
 pip install pandas scikit-learn matplotlib seaborn
 ```
