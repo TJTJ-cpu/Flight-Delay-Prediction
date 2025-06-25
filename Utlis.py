@@ -13,7 +13,9 @@ def GetAllAirportName():
 def GetRandomAirport():
     allAirportName = GetAllAirportName()
     name = random.choice(allAirportName)
+    print(f'all airport name size: {len(allAirportName)}')
     while (True):
+        print(name)
         if bIsDataEmpty(name):
             name = random.choice(allAirportName) 
         else:

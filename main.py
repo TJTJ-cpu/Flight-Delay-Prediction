@@ -1,6 +1,8 @@
+from numpy import empty, empty_like
 import pandas as pd
 import matplotlib.pyplot as plt
 import Utlis
+import time
 
 from sklearn.model_selection import train_test_split
 
@@ -19,15 +21,23 @@ flightData = pd.read_csv("data/flights.csv")
 #
 # laxFlight.loc[:, "IsDelayed"] = laxFlight["DepDelay"] > delayTime
 
+names = Utlis.GetAllAirportName()
+emptyList = 0
+notEmpty = 0
+total = len(names)
+for i, name in enumerate(names):
+    if Utlis.bIsDataEmpty(name):
+        emptyList += 1
+    else:
+        notEmpty += 1
 
-
-a = "Los Angeles"
-df = pd.read_csv("data/airports.csv")
-flightData = pd.read_csv("data/flights.csv")
+print(f'Total: {total}')
+print(f"Empty: {emptyList}")
+print(f"Empty: {notEmpty}")
 
 name = Utlis.GetRandomAirport()
 data = Utlis.GetAirportData(name)
-print(data)
+# print(data)
 
 
 # # data = Utlis.GetAirportData("Los Angeles")
