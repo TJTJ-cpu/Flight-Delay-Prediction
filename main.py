@@ -21,29 +21,22 @@ flightData = pd.read_csv("data/flights.csv")
 #
 # laxFlight.loc[:, "IsDelayed"] = laxFlight["DepDelay"] > delayTime
 
-names = Utlis.GetAllAirportName()
-emptyList = 0
-notEmpty = 0
-total = len(names)
-for i, name in enumerate(names):
-    if Utlis.bIsDataEmpty(name):
-        emptyList += 1
-    else:
-        notEmpty += 1
+# names = Utlis.GetAllAirportName()
 
-print(f'Total: {total}')
-print(f"Empty: {emptyList}")
-print(f"Empty: {notEmpty}")
 
-name = Utlis.GetRandomAirport()
-data = Utlis.GetAirportData(name)
+# name = Utlis.GetRandomAirport()
+# data = Utlis.GetAirportData(name)
 # print(data)
 
 
 # # data = Utlis.GetAirportData("Los Angeles")
+# Utlis.CreateAvailableList('airportList.csv')
+
+print(Utlis.GetRandomAirport())
+
 # # print(data)
 #
-# features = laxFlight[["DayofMonth", "DayOfWeek", "Carrier"]]
+# features = laxFlight[]
 # labels = laxFlight["IsDelayed"]
 #
 # # Convert Category into one-hot encoded variables (dummy)

@@ -2,24 +2,41 @@ from numpy import empty
 import pandas as pd
 import matplotlib.pyplot as plt
 import random
+import os
+
+from pandas.io.common import file_path_to_url
 
 
 
 def GetAllAirportName():
     df = pd.read_csv("data/airports.csv")
-    allAirport = df['name'].drop_duplicates()
-    return allAirport
+    airportArr = df['name'].drop_duplicates().tolist()
+    return airportArr
+
+def GetAllAvaiableAirport():
+    allAirports = GetAllAirportName()
 
 def GetRandomAirport():
     allAirportName = GetAllAirportName()
-    name = random.choice(allAirportName)
-    print(f'all airport name size: {len(allAirportName)}')
-    while (True):
-        print(name)
-        if bIsDataEmpty(name):
-            name = random.choice(allAirportName) 
-        else:
-            return name
+    return random.choice(allAirportName)
+
+def CreateAvailableList():
+    folder = 'data'
+    fileName = "airportList.csv"
+    filePath = os.path.join(folder, fileName)
+    # Create file if not exist
+    if not os.path.exists(filePath):
+        open(filePath, 'w').close()
+    else:
+        open(filePath, 'w').close()
+
+    allAirportName = GetAllAirportName()
+    len(allAirportName)
+    for i, name in enumerate(allAirportName):
+        if not bIsDataEmpty(name):
+            with open(filePath, 'a') as f:
+                f.write(f'{name}\n')
+                print(f'{i}: {name}')
 
 
 def GetAirportData(airportName):
