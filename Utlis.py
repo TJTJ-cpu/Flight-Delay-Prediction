@@ -9,16 +9,19 @@ from pandas.io.common import file_path_to_url
 
 
 def GetAllAirportName():
-    df = pd.read_csv("data/airports.csv")
-    airportArr = df['name'].drop_duplicates().tolist()
-    return airportArr
+    filePath = "data/airportList.csv"
+    if not os.path.exists(filePath):
+        CreateAvailableList()
+    df = pd.read_csv(filePath)
+    return df
 
-def GetAllAvaiableAirport():
-    allAirports = GetAllAirportName()
+
+# def GetAirportID(name):
+
 
 def GetRandomAirport():
     allAirportName = GetAllAirportName()
-    return random.choice(allAirportName)
+    return random.choice(allAirportName['name'].tolist())
 
 def CreateAvailableList():
     folder = 'data'
@@ -30,13 +33,13 @@ def CreateAvailableList():
     else:
         open(filePath, 'w').close()
 
-    allAirportName = GetAllAirportName()
-    len(allAirportName)
-    for i, name in enumerate(allAirportName):
-        if not bIsDataEmpty(name):
-            with open(filePath, 'a') as f:
-                f.write(f'{name}\n')
-                print(f'{i}: {name}')
+    df = pd.read_csv("data/airports.csv")
+    # get all unique name
+    allAirportName = df['name'].drop_duplicates().tolist()
+    # get all name with data
+    validNames = [name for name in allAirportName if not bIsDataEmpty(name)]
+    newDf = pd.DataFrame({'name': validNames})
+    newDf.to_csv("data/airportList.csv", index=False)
 
 
 def GetAirportData(airportName):
@@ -46,8 +49,6 @@ def GetAirportData(airportName):
     airportId = aiportInfo["airport_id"].values[0] # Fake Error Here
     airportData = flightsData[(flightsData["OriginAirportID"] == airportId) | 
                         (flightsData["DestAirportID"] == airportId)]
-    if not airportData.empty:
-        print(f"Airport Name: {airportName}, ID: {airportId}")
     return airportData
 
 

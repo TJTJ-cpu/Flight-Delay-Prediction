@@ -9,56 +9,12 @@ from sklearn.model_selection import train_test_split
 
 df = pd.read_csv("data/airports.csv")
 flightData = pd.read_csv("data/flights.csv")
-# print(df['city'].unique)
+
+airport = Utlis.GetRandomAirport()
+
+print(flightData.columns)
+print('airport')
+print(df.columns)
 
 
-# lax_info = df[df["name"].str.contains("Los Angeles")]
-# laxId = lax_info["airport_id"].values[0] # Fake Error Here
-#
-# laxFlight = flightData[(flightData["OriginAirportID"] == laxId) | 
-#                         (flightData["DestAirportID"] == laxId)].copy()
-# delayTime = 15
-#
-# laxFlight.loc[:, "IsDelayed"] = laxFlight["DepDelay"] > delayTime
-
-# names = Utlis.GetAllAirportName()
-
-
-# name = Utlis.GetRandomAirport()
-# data = Utlis.GetAirportData(name)
-# print(data)
-
-
-# # data = Utlis.GetAirportData("Los Angeles")
-# Utlis.CreateAvailableList('airportList.csv')
-
-print(Utlis.GetRandomAirport())
-
-# # print(data)
-#
-# features = laxFlight[]
-# labels = laxFlight["IsDelayed"]
-#
-# # Convert Category into one-hot encoded variables (dummy)
-# features_encoded = pd.get_dummies(features, columns=["Carrier"])
-#
-# # Get the list of columns
-# carrier_columns = [col for col in features_encoded.columns if col.startswith("Carrier_")]
-#
-# # Create a graph of number of flight per carrier
-# dfCarrierData = features_encoded[carrier_columns].sum()
-#
-# #Sort by value
-# dfSortedCarrierData = dfCarrierData.sort_values()
-#
-# if False:
-#     dfSortedCarrierData.plot(kind='barh', figsize=(10,6))
-#     plt.title("Number of Flights per Carrier (LAX)")
-#     plt.xlabel("Flights")
-#     plt.show()
-#
-#
-#
-#
-#
 
